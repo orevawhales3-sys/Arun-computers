@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Arun Computers"
+version = "1.0.0"
+id = "artifacts/arun-computers"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26150
+
+[services.development]
+run = "pnpm --filter @workspace/arun-computers run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/arun-computers", "run", "build" ]
+publicDir = "artifacts/arun-computers/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26150"
+BASE_PATH = "/"

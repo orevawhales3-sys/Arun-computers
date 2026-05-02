@@ -1,0 +1,166 @@
+Build a modern, premium, highly attractive, and responsive business website for a local repair shop named "Arun Computers".
+
+The website must look visually impressive but remain simple, clean, and easy to use. It should instantly build trust and encourage users to call or message within seconds.
+
+---
+
+## BUSINESS DETAILS
+
+Name: Arun Computers
+Type: Laptop & Computer Repair Shop
+Experience: 10+ Years
+Phone: +91 9666347154
+Timings: 10:00 AM – 9:00 PM
+Open: All days (including Sunday)
+
+Address:
+Arun Computers, Dno 2-33/3, Beside Sai Ram Photo Studio,
+Vinayak Nagar, Indira Nagar, Gachibowli, Hyderabad – 500032
+
+---
+
+## DESIGN SYSTEM (VERY IMPORTANT)
+
+Use a premium modern dark theme:
+
+* Main Background: #0B1220 (deep navy)
+* Section Background: #111827
+* Primary Accent: #2563EB (electric blue)
+* Highlight/CTA: #EF4444 (soft red)
+* Text Primary: #FFFFFF
+* Text Secondary: #94A3B8
+
+Design style:
+
+* Clean, minimal, premium look
+* Smooth gradients and subtle glow effects
+* Rounded cards and soft shadows
+* Large modern fonts
+* Icons should be clean, minimal, and consistent (outline-style icons)
+* Smooth hover animations
+* Fully mobile responsive
+
+---
+
+## HERO SECTION (TOP)
+
+* Display provided logo prominently
+* Title: Arun Computers
+* Tagline: "Expert Laptop & Computer Repair – 10+ Years Experience"
+* Subtitle: "Fast, Reliable, and Affordable Repair Services"
+
+Buttons (large, attractive, glowing slightly):
+
+1. Call Now → tel:+919666347154
+2. WhatsApp → https://wa.me/919666347154
+3. Get Directions → https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad
+
+---
+
+## SERVICES SECTION
+
+Display services in a clean grid with icons and hover effects:
+
+* Laptop Repair (All Brands)
+* Desktop Repair
+* Screen Replacement
+* Battery Replacement
+* Keyboard & Hinge Repair
+* Motherboard Repair (Chip-Level)
+* IC & Circuit Repair
+* OS Installation (Windows/Linux)
+* Software Installation
+* Virus Removal
+* Hard Disk Repair
+* RAM Repair & Upgrade
+* Printer Repair
+* General Computer Issues
+
+Each service card should:
+
+* include icon + title
+* have hover animation (lift + glow)
+
+---
+
+## WHY CHOOSE US SECTION
+
+Display trust points with icons:
+
+* 10+ Years Experience
+* Chip-Level Repair Expertise
+* Fast & Reliable Service
+* All Brands Supported
+* Affordable Pricing
+
+---
+
+## LOCATION SECTION
+
+* Show full address clearly:
+
+"Arun Computers, Dno 2-33/3, Beside Sai Ram Photo Studio,
+Vinayak Nagar, Indira Nagar, Gachibowli, Hyderabad – 500032"
+
+* Embed Google Map using:
+  https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad
+
+* Add button:
+  "Open in Maps" → same link
+
+---
+
+## WORKING HOURS
+
+Display clearly:
+
+* 10:00 AM – 9:00 PM
+* Open All Days (including Sunday)
+
+---
+
+## FINAL CALL-TO-ACTION
+
+Large bottom section:
+
+"Need urgent laptop repair? Contact us now!"
+
+Buttons:
+
+* Call → tel:+919666347154
+* WhatsApp → https://wa.me/919666347154
+
+---
+
+## UX REQUIREMENTS
+
+* Extremely easy navigation
+* Fast loading
+* Clean layout (no clutter)
+* Sticky header (optional)
+* Floating WhatsApp button (bottom-right)
+* Mobile-first design
+
+---
+
+## IMPORTANT RULES
+
+* Do NOT include FAQ, tracking, pickup/drop, or complex forms
+* Do NOT clutter UI
+* Focus on clarity and conversion
+* Make buttons highly visible
+* Keep everything simple but premium
+
+---
+
+## FINAL GOAL
+
+The website should feel:
+
+* premium
+* modern
+* trustworthy
+* attractive
+* fast
+
+And should convert visitors into calls or WhatsApp messages within seconds.

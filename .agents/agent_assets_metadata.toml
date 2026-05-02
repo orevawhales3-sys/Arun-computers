@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "D_l0HU-dJwwdSnDwF8ZqE"
+uri = "file://artifacts/arun-computers/public/logo.png"
+type = "image"
+title = "Tech repair shop logo"
