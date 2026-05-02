@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Phone, 
@@ -25,6 +25,38 @@ import {
   Quote,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+
+function CountUp({ target, duration = 1800 }: { target: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * target));
+            if (progress < 1) requestAnimationFrame(tick);
+            else setCount(target);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return <span ref={ref}>{count}</span>;
+}
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -355,6 +387,36 @@ export default function Home() {
                 Open All Days
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* ─── ANIMATED STATS BAR ─── */}
+        <section className="relative z-10 border-y border-white/6 bg-card/20 backdrop-blur-sm">
+          <div className="container mx-auto px-5 py-8 md:py-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+              {[
+                { target: 1000, suffix: "+", label: "Repairs Done", color: "text-primary" },
+                { target: 10,   suffix: "+", label: "Years of Service", color: "text-secondary" },
+                { target: 15,   suffix: "+", label: "Services Offered", color: "text-primary" },
+                { target: 5,    suffix: "★", label: "Avg. Customer Rating", color: "text-amber-400" },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="flex flex-col items-center text-center gap-1 group"
+                >
+                  <div className={`text-3xl md:text-4xl font-bold tabular-nums tracking-tight ${stat.color} drop-shadow-[0_0_16px_currentColor] transition-all duration-300`}>
+                    <CountUp target={stat.target} duration={1600 + idx * 100} />
+                    <span>{stat.suffix}</span>
+                  </div>
+                  <div className="text-xs md:text-sm text-muted-foreground/70 font-medium">{stat.label}</div>
+                  <div className={`w-8 h-0.5 rounded-full bg-gradient-to-r from-transparent via-current to-transparent ${stat.color} opacity-40 mt-0.5`} />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
