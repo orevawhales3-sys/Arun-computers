@@ -193,7 +193,7 @@ export default function Home() {
         {/* Top ambient glow inside navbar */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/3 to-transparent pointer-events-none" />
 
-        <div className="container mx-auto px-5 h-[70px] md:h-[84px] flex items-center justify-between relative z-10">
+        <div className="container mx-auto pl-3 pr-5 md:pl-5 md:pr-6 h-[70px] md:h-[84px] flex items-center justify-between relative z-10">
 
           {/* Logo + Brand */}
           <div className="flex items-center gap-3 cursor-pointer group" onClick={handleHome}>
@@ -220,7 +220,7 @@ export default function Home() {
             <button onClick={() => scrollTo('location')} className="nav-link text-[15px]">Location</button>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ml-6 md:ml-10">
             {/* Desktop Call Now */}
             <a href="tel:+919666347154" data-testid="button-call-nav" className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm btn-glow-purple hover:scale-[1.05] active:scale-95 transition-all duration-200 shadow-[0_0_28px_-4px_hsl(262_88%_66%/0.55)]">
               <Phone size={15} />
