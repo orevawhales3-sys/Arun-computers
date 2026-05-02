@@ -205,10 +205,7 @@ export default function Home() {
                 className="relative w-9 h-9 md:w-10 md:h-10 object-contain flex-shrink-0 transition-all duration-300 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(139,92,246,0.65)]"
               />
             </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-[15px] md:text-[17px] font-bold tracking-tight brand-gradient-text">Arun Computers</span>
-              <span className="text-[10px] text-muted-foreground/50 font-medium tracking-widest uppercase hidden md:block">Gachibowli, Hyderabad</span>
-            </div>
+            <span className="text-[15px] md:text-[17px] font-bold tracking-tight brand-gradient-text">Arun Computers</span>
           </div>
 
           {/* Desktop nav */}
@@ -707,14 +704,83 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-background border-t border-white/6 py-10 pb-28 md:pb-10">
-        <div className="container mx-auto px-5 text-center">
-          <h3 className="text-lg md:text-2xl font-bold mb-3 brand-gradient-text">Arun Computers</h3>
-          <p className="text-muted-foreground text-sm mb-1">Dno 2-33/3, Beside Sai Ram Photo Studio, Vinayak Nagar, Indira Nagar</p>
-          <p className="text-muted-foreground text-sm mb-4">Gachibowli, Hyderabad – 500032</p>
-          <p className="text-muted-foreground text-sm mb-6">Open All Days • 10:00 AM – 9:00 PM • Ph: +91 9666347154</p>
-          <div className="border-t border-white/6 pt-6 text-xs text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} Arun Computers. All rights reserved.
+      <footer className="bg-background border-t border-white/8 pb-28 md:pb-0 relative overflow-hidden">
+        {/* Top glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xl h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[40%] h-[120px] bg-primary/5 blur-[80px] rounded-full pointer-events-none" />
+
+        <div className="container mx-auto px-5 pt-12 pb-8 max-w-6xl relative z-10">
+          {/* Main footer grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
+            {/* Brand column */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/logo-user.png" alt="Arun Computers Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
+                <span className="text-lg font-bold brand-gradient-text">Arun Computers</span>
+              </div>
+              <p className="text-muted-foreground/70 text-sm leading-relaxed mb-5 max-w-xs font-light">
+                Expert laptop &amp; desktop repair in Gachibowli, Hyderabad. Chip-level repairs, all brands supported, same-day service.
+              </p>
+              <div className="flex gap-3">
+                <a href="tel:+919666347154" className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary/20 transition-all">
+                  <Phone size={14} /> Call Us
+                </a>
+                <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary px-4 py-2 rounded-xl text-sm font-medium hover:bg-secondary/20 transition-all">
+                  <SiWhatsapp size={14} /> WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide">Quick Links</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/70">
+                {[
+                  { label: 'Home', action: 'top' },
+                  { label: 'Our Services', action: 'services' },
+                  { label: 'About Us', action: 'why-us' },
+                  { label: 'Location', action: 'location' },
+                  { label: 'Contact', action: 'location' },
+                ].map(link => (
+                  <li key={link.label}>
+                    <button
+                      onClick={() => link.action === 'top' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : document.getElementById(link.action)?.scrollIntoView({ behavior: 'smooth' })}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide">Contact Info</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/70 font-light">
+                <li className="flex gap-2">
+                  <Phone size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
+                  <a href="tel:+919666347154" className="hover:text-primary transition-colors">+91 9666347154</a>
+                </li>
+                <li className="flex gap-2">
+                  <MapPin size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
+                  <span>Dno 2-33/3, Beside Sai Ram Photo Studio, Vinayak Nagar, Gachibowli, Hyderabad – 500032</span>
+                </li>
+                <li className="flex gap-2">
+                  <Clock size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
+                  <span>Open All Days · 10 AM – 9 PM</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground/50">
+            <span>&copy; {new Date().getFullYear()} Arun Computers. All rights reserved.</span>
+            <span className="flex items-center gap-1.5">
+              Owned &amp; operated by <span className="text-muted-foreground/70 font-medium">M. Arunkumar</span>
+            </span>
           </div>
         </div>
       </footer>
