@@ -70,7 +70,6 @@ export default function Home() {
     { icon: Cpu, title: "Desktop Repair" },
     { icon: MonitorOff, title: "Screen Replacement" },
     { icon: Battery, title: "Battery Replacement" },
-    { icon: Keyboard, title: "Keyboard Repair" },
     { icon: Wrench, title: "Laptop Hinges Repair" },
     { icon: Microchip, title: "Motherboard Repair (Chip-Level)" },
     { icon: Activity, title: "IC & Circuit Repair" },
@@ -473,7 +472,7 @@ export default function Home() {
             <div className="text-center mb-10 md:mb-14">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/25 bg-secondary/8 text-secondary/90 text-xs font-medium tracking-wide mb-4">
                 <Star size={11} className="fill-secondary text-secondary" />
-                5.0 Rating · Trusted by 1000+ Customers
+                10+ Years of Trusted Service
               </div>
               <h2 className="text-2xl md:text-4xl font-bold mb-3 title-gradient-subtle">What Our Customers Say</h2>
               <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Real experiences from real customers across Hyderabad.</p>
