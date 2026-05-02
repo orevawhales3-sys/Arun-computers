@@ -101,7 +101,7 @@ export default function Home() {
             <button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors">Location</button>
           </nav>
 
-          <a href="tel:+919666347154" className="bg-destructive text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-destructive/90 transition-all glow-effect-red hover:scale-105 active:scale-95">
+          <a href="tel:+919666347154" className="bg-primary text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-all glow-effect hover:scale-105 active:scale-95">
             <Phone size={18} />
             <span className="hidden sm:inline">Call Now</span>
           </a>
@@ -129,19 +129,36 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 font-mono leading-tight"
+              className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight"
             >
-              Expert Laptop & <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Computer Repair</span>
+              Arun Computers
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-2xl md:text-3xl font-medium mb-3"
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Laptop &amp; Desktop Repair</span>
+            </motion.p>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
+              className="text-base md:text-lg text-muted-foreground mb-3 font-light"
             >
-              Fast, Reliable, and Affordable Repair Services in Gachibowli, Hyderabad
+              10+ Years Experience in Gachibowli
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.22 }}
+              className="text-sm text-muted-foreground/60 mb-10 font-light"
+            >
+              Owned &amp; Operated by M. Arunkumar
             </motion.p>
 
             <motion.div 
@@ -154,7 +171,7 @@ export default function Home() {
                 <Phone size={22} />
                 Call Now
               </a>
-              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-[#25D366]/90 transition-all glow-effect-green hover:scale-105">
+              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-secondary/90 transition-all glow-effect-cyan hover:scale-105">
                 <SiWhatsapp size={22} />
                 WhatsApp Us
               </a>
@@ -300,7 +317,7 @@ export default function Home() {
                     <a href="tel:+919666347154" className="flex-1 bg-primary text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
                       <Phone size={18} /> Call
                     </a>
-                    <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="flex-1 bg-[#25D366] text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-[#25D366]/90 transition-colors">
+                    <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="flex-1 bg-secondary text-secondary-foreground px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-secondary/90 transition-colors">
                       <SiWhatsapp size={18} /> WhatsApp
                     </a>
                   </div>
@@ -334,11 +351,11 @@ export default function Home() {
             <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">Contact us now! Available 10 AM – 9 PM, All Days Including Sunday.</p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="tel:+919666347154" className="bg-destructive text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-destructive/90 transition-all glow-effect-red hover:scale-105">
+              <a href="tel:+919666347154" className="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-primary/90 transition-all glow-effect hover:scale-105">
                 <Phone size={22} />
                 Call Now
               </a>
-              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-[#25D366]/90 transition-all glow-effect-green hover:scale-105">
+              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-secondary/90 transition-all glow-effect-cyan hover:scale-105">
                 <SiWhatsapp size={22} />
                 WhatsApp Us
               </a>
@@ -365,7 +382,7 @@ export default function Home() {
         href="https://wa.me/919666347154" 
         target="_blank" 
         rel="noreferrer"
-        className="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce"
         style={{ animationDuration: '2s' }}
         aria-label="Chat on WhatsApp"
       >

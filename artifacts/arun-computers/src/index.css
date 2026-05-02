@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -76,70 +76,70 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  /* Background: #0B1220 */
-  --background: 220 49% 8%;
+  /* Background: #0F0A1F (deep dark purple) */
+  --background: 260 51% 8%;
   --foreground: 0 0% 100%;
   
-  /* Section bg: #111827 */
-  --card: 221 39% 11%;
+  /* Section bg: #1A1235 */
+  --card: 255 49% 14%;
   --card-foreground: 0 0% 100%;
-  --card-border: 220 30% 15%;
+  --card-border: 258 40% 20%;
 
-  --popover: 221 39% 11%;
+  --popover: 255 49% 14%;
   --popover-foreground: 0 0% 100%;
-  --popover-border: 220 30% 15%;
+  --popover-border: 258 40% 20%;
 
-  --border: 220 30% 15%;
-  --input: 220 30% 15%;
-  --ring: 221 83% 53%;
+  --border: 258 40% 20%;
+  --input: 258 40% 20%;
+  --ring: 262 88% 66%;
 
-  /* Primary: #2563EB */
-  --primary: 221 83% 53%;
+  /* Primary: #8B5CF6 (neon purple) */
+  --primary: 262 88% 66%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary / Accent */
-  --secondary: 220 30% 15%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary: #22D3EE (cyan glow) */
+  --secondary: 188 83% 53%;
+  --secondary-foreground: 260 51% 8%;
 
-  /* Muted / Text Secondary: #94A3B8 */
-  --muted: 220 30% 15%;
-  --muted-foreground: 215 16% 65%;
+  /* Muted / Text Secondary: #A1A1AA */
+  --muted: 258 40% 18%;
+  --muted-foreground: 240 4% 65%;
 
-  --accent: 221 39% 11%;
+  --accent: 255 49% 14%;
   --accent-foreground: 0 0% 100%;
 
-  /* CTA: #EF4444 */
+  /* Destructive (kept for status indicators) */
   --destructive: 358 83% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --sidebar: 221 39% 11%;
+  --sidebar: 255 49% 14%;
   --sidebar-foreground: 0 0% 100%;
-  --sidebar-border: 220 30% 15%;
-  --sidebar-primary: 221 83% 53%;
+  --sidebar-border: 258 40% 20%;
+  --sidebar-primary: 262 88% 66%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 30% 15%;
+  --sidebar-accent: 258 40% 18%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 221 83% 53%;
+  --sidebar-ring: 262 88% 66%;
 
-  --chart-1: 221 83% 53%;
-  --chart-2: 358 83% 60%;
+  --chart-1: 262 88% 66%;
+  --chart-2: 188 83% 53%;
   --chart-3: 142 71% 45%;
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
 
-  --app-font-sans: 'Outfit', sans-serif;
+  --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
-  --app-font-mono: 'Space Grotesk', monospace;
+  --app-font-mono: 'Poppins', sans-serif;
   --radius: .75rem;
   
-  --shadow-2xs: 0px 2px 0px 0px hsl(221 83% 53% / 0.1);
-  --shadow-xs: 0px 2px 0px 0px hsl(221 83% 53% / 0.1);
-  --shadow-sm: 0px 2px 0px 0px hsl(221 83% 53% / 0.1), 0px 1px 2px -1px hsl(221 83% 53% / 0.1);
-  --shadow: 0px 2px 0px 0px hsl(221 83% 53% / 0.1), 0px 1px 2px -1px hsl(221 83% 53% / 0.1);
-  --shadow-md: 0px 2px 0px 0px hsl(221 83% 53% / 0.1), 0px 2px 4px -1px hsl(221 83% 53% / 0.1);
-  --shadow-lg: 0px 2px 0px 0px hsl(221 83% 53% / 0.1), 0px 4px 6px -1px hsl(221 83% 53% / 0.1);
-  --shadow-xl: 0px 2px 0px 0px hsl(221 83% 53% / 0.1), 0px 8px 10px -1px hsl(221 83% 53% / 0.1);
-  --shadow-2xl: 0px 2px 0px 0px hsl(221 83% 53% / 0.1);
+  --shadow-2xs: 0px 2px 0px 0px hsl(262 88% 66% / 0.1);
+  --shadow-xs: 0px 2px 0px 0px hsl(262 88% 66% / 0.1);
+  --shadow-sm: 0px 2px 0px 0px hsl(262 88% 66% / 0.1), 0px 1px 2px -1px hsl(262 88% 66% / 0.1);
+  --shadow: 0px 2px 0px 0px hsl(262 88% 66% / 0.1), 0px 1px 2px -1px hsl(262 88% 66% / 0.1);
+  --shadow-md: 0px 2px 0px 0px hsl(262 88% 66% / 0.1), 0px 2px 4px -1px hsl(262 88% 66% / 0.1);
+  --shadow-lg: 0px 2px 0px 0px hsl(262 88% 66% / 0.1), 0px 4px 6px -1px hsl(262 88% 66% / 0.1);
+  --shadow-xl: 0px 2px 0px 0px hsl(262 88% 66% / 0.1), 0px 8px 10px -1px hsl(262 88% 66% / 0.1);
+  --shadow-2xl: 0px 2px 0px 0px hsl(262 88% 66% / 0.1);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -181,6 +181,9 @@
 }
 .glow-effect-green {
   box-shadow: 0 0 20px -5px #25D36666;
+}
+.glow-effect-cyan {
+  box-shadow: 0 0 20px -5px hsl(188 83% 53% / 0.5);
 }
 
 @layer utilities {

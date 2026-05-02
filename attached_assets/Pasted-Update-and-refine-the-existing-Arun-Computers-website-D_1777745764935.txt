@@ -1,0 +1,119 @@
+Update and refine the existing "Arun Computers" website. Do NOT rebuild from scratch—only improve the current design and content.
+
+---
+
+## TEXT FIXES (VERY IMPORTANT)
+
+* Replace all instances of:
+  "Laptop & Computer Repair"
+  → with:
+  "Laptop & Desktop Repair"
+
+* Use normal symbol "&" only (do NOT use any stylized symbols)
+
+---
+
+## OWNER DETAIL
+
+Add a small professional line in the hero or about section:
+"Owned & Operated by M. Arunkumar"
+
+Keep it subtle and clean.
+
+---
+
+## HERO SECTION IMPROVEMENT
+
+* Reduce text clutter significantly
+* Keep only:
+
+Title: Arun Computers
+Subtitle: Laptop & Desktop Repair
+Small line: "10+ Years Experience in Gachibowli"
+
+* Remove long paragraphs
+* Add proper spacing
+* Make it clean and visually balanced
+
+---
+
+## COLOR SYSTEM (FINAL - UNIQUE MODERN)
+
+Replace all colors completely:
+
+* Main Background: #0F0A1F (deep dark purple)
+* Section Background: #1A1235
+* Primary Accent: #8B5CF6 (neon purple)
+* Secondary Accent: #22D3EE (cyan glow)
+* Text Primary: #FFFFFF
+* Text Secondary: #A1A1AA
+
+---
+
+## BUTTON COLORS
+
+* Call button → purple (#8B5CF6)
+* WhatsApp button → cyan (#22D3EE)
+
+---
+
+## BACKGROUND IMPROVEMENT
+
+* Replace current background
+* Use smooth gradient:
+  dark purple → slightly lighter purple
+* Add subtle glow behind hero section
+* Keep it clean (not flashy)
+
+---
+
+## UI / UX IMPROVEMENTS
+
+* Increase spacing between sections
+
+* Reduce text density everywhere
+
+* Improve readability
+
+* Service cards:
+
+  * clean layout
+  * soft shadows
+  * hover effect (lift + glow)
+
+* Buttons:
+
+  * rounded
+  * smooth hover animation
+  * slight glow effect
+
+* Navbar:
+
+  * cleaner spacing
+  * highlight active section
+
+---
+
+## TYPOGRAPHY
+
+* Use modern font (Inter or Poppins)
+* Avoid excessive bold text
+* Maintain proper hierarchy:
+  Title → large
+  Subtitle → medium
+  Content → light
+
+---
+
+## FINAL LOOK GOAL
+
+The website should feel:
+
+* premium
+* modern
+* clean
+* unique
+* visually attractive
+* not text-heavy
+
+Focus on simplicity + strong visual appeal + fast user action.
