@@ -233,7 +233,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
-              className="relative text-5xl sm:text-6xl md:text-8xl font-bold tracking-tight mb-3 leading-tight title-gradient"
+              className="relative text-5xl sm:text-6xl md:text-[5.6rem] font-bold tracking-tight mb-3 leading-tight title-gradient"
             >
               Arun Computers
             </motion.h1>
