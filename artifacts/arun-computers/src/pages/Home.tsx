@@ -42,9 +42,12 @@ function CountUp({ target, duration = 1800, decimals = 0 }: { target: number; du
           const tick = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(parseFloat((eased * target).toFixed(decimals)));
+            const factor = Math.pow(10, decimals);
+            const val = progress < 1
+              ? Math.floor(eased * target * factor) / factor
+              : target;
+            setCount(val);
             if (progress < 1) requestAnimationFrame(tick);
-            else setCount(target);
           };
           requestAnimationFrame(tick);
         }
@@ -711,7 +714,7 @@ export default function Home() {
 
         <div className="container mx-auto px-5 pt-12 pb-8 max-w-6xl relative z-10">
           {/* Main footer grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
 
             {/* Brand column */}
             <div className="lg:col-span-2">
@@ -730,29 +733,6 @@ export default function Home() {
                   <SiWhatsapp size={14} /> WhatsApp
                 </a>
               </div>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide">Quick Links</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground/70">
-                {[
-                  { label: 'Home', action: 'top' },
-                  { label: 'Our Services', action: 'services' },
-                  { label: 'About Us', action: 'why-us' },
-                  { label: 'Location', action: 'location' },
-                  { label: 'Contact', action: 'location' },
-                ].map(link => (
-                  <li key={link.label}>
-                    <button
-                      onClick={() => link.action === 'top' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : document.getElementById(link.action)?.scrollIntoView({ behavior: 'smooth' })}
-                      className="hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Contact Info */}
