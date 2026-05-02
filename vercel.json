@@ -1,7 +1,0 @@
-{
-  "buildCommand": "npm install --prefix artifacts/arun-computers && npm run build --prefix artifacts/arun-computers",
-  "outputDirectory": "artifacts/arun-computers/dist/public",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
