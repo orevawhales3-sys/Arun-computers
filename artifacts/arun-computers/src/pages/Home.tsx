@@ -80,10 +80,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans relative overflow-x-hidden selection:bg-primary selection:text-white">
       
-      {/* Background ambient glow */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" />
+      {/* Background gradient + ambient glow */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-hero-gradient">
+        <div className="absolute top-[-5%] left-[-5%] w-[35%] h-[35%] rounded-full bg-primary/10 blur-[140px]" />
+        <div className="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] rounded-full bg-secondary/8 blur-[140px]" />
       </div>
 
       {/* Sticky Header */}
@@ -101,7 +101,7 @@ export default function Home() {
             <button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors">Location</button>
           </nav>
 
-          <a href="tel:+919666347154" className="bg-primary text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-all glow-effect hover:scale-105 active:scale-95">
+          <a href="tel:+919666347154" data-testid="button-call-nav" className="bg-primary text-white px-4 py-2 rounded-full font-medium text-sm flex items-center gap-2 btn-glow-purple hover:scale-[1.04] active:scale-95 transition-all duration-200">
             <Phone size={18} />
             <span className="hidden sm:inline">Call Now</span>
           </a>
@@ -113,109 +113,112 @@ export default function Home() {
         <section className="min-h-[85vh] flex items-center pt-10 pb-20 relative">
           <div className="container mx-auto px-4 text-center max-w-5xl">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium"
+              transition={{ duration: 0.5 }}
+              className="mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/8 text-primary/80 text-xs font-medium tracking-wide"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
               </span>
               10+ Years of Excellence in Hyderabad
             </motion.div>
 
+            {/* Soft radial glow behind title */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/8 blur-[100px] rounded-full pointer-events-none" />
+
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight"
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="relative text-5xl md:text-7xl font-bold tracking-tight mb-3 leading-tight title-gradient"
             >
               Arun Computers
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-2xl md:text-3xl font-medium mb-3"
+              transition={{ duration: 0.55, delay: 0.17 }}
+              className="text-xl md:text-2xl font-medium mb-2"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Laptop &amp; Desktop Repair</span>
             </motion.p>
 
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-lg text-muted-foreground mb-3 font-light"
+              transition={{ duration: 0.55, delay: 0.23 }}
+              className="text-sm md:text-base text-muted-foreground mb-1.5 font-light"
             >
               10+ Years Experience in Gachibowli
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.22 }}
-              className="text-sm text-muted-foreground/60 mb-10 font-light"
+              transition={{ duration: 0.55, delay: 0.28 }}
+              className="text-xs text-muted-foreground/50 mb-9 font-light"
             >
               Owned &amp; Operated by M. Arunkumar
             </motion.p>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+              transition={{ duration: 0.55, delay: 0.34 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
             >
-              <a href="tel:+919666347154" className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-primary/90 transition-all glow-effect hover:scale-105">
-                <Phone size={22} />
+              <a href="tel:+919666347154" data-testid="button-call-hero" className="w-full sm:w-auto bg-primary text-white px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-purple hover:scale-[1.03] active:scale-[0.98] transition-all duration-200">
+                <Phone size={20} />
                 Call Now
               </a>
-              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-secondary/90 transition-all glow-effect-cyan hover:scale-105">
-                <SiWhatsapp size={22} />
+              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" data-testid="button-whatsapp-hero" className="w-full sm:w-auto bg-secondary text-secondary-foreground px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-cyan hover:scale-[1.03] active:scale-[0.98] transition-all duration-200">
+                <SiWhatsapp size={20} />
                 WhatsApp Us
               </a>
-              <a href="https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad" target="_blank" rel="noreferrer" className="w-full sm:w-auto border border-border bg-card/50 backdrop-blur-sm text-foreground px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-card transition-all hover:scale-105">
-                <MapPin size={22} />
+              <a href="https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad" target="_blank" rel="noreferrer" data-testid="button-directions-hero" className="w-full sm:w-auto border border-border/60 bg-white/4 backdrop-blur-sm text-foreground/80 px-7 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2.5 text-base hover:bg-white/8 hover:border-primary/30 hover:scale-[1.02] transition-all duration-200">
+                <MapPin size={20} />
                 Get Directions
               </a>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground font-medium"
+              transition={{ duration: 0.5, delay: 0.44 }}
+              className="flex flex-wrap items-center justify-center gap-5 text-xs text-muted-foreground/70 font-medium tracking-wide"
             >
-              <div className="flex items-center gap-2"><ShieldCheck size={18} className="text-primary"/> 10+ Years Experience</div>
-              <div className="flex items-center gap-2"><ThumbsUp size={18} className="text-primary"/> All Brands Supported</div>
-              <div className="flex items-center gap-2"><Clock size={18} className="text-primary"/> Open All Days</div>
+              <div className="flex items-center gap-1.5"><ShieldCheck size={15} className="text-primary/70"/> 10+ Years Experience</div>
+              <div className="flex items-center gap-1.5"><ThumbsUp size={15} className="text-primary/70"/> All Brands Supported</div>
+              <div className="flex items-center gap-1.5"><Clock size={15} className="text-primary/70"/> Open All Days</div>
             </motion.div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 bg-card/30 border-y border-border relative">
+        <section id="services" className="py-28 bg-card/20 border-y border-border/50 relative">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 font-mono">Our Services</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">Comprehensive repair solutions for all your tech problems.</p>
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
+              <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Comprehensive repair solutions for all your tech needs.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {services.map((service, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group bg-card border border-border rounded-2xl p-6 flex flex-col items-center text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 glow-effect-hover"
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  className="group bg-card/60 border border-border/60 rounded-2xl p-5 flex flex-col items-center text-center hover:border-primary/40 transition-all duration-250 hover:-translate-y-1.5 service-card-shadow"
                 >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
-                    <service.icon size={28} />
+                  <div className="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center mb-3.5 group-hover:bg-primary/20 transition-colors text-primary/80 group-hover:text-primary">
+                    <service.icon size={24} />
                   </div>
-                  <h3 className="font-semibold text-lg">{service.title}</h3>
+                  <h3 className="font-medium text-sm leading-snug text-foreground/90">{service.title}</h3>
                 </motion.div>
               ))}
             </div>
@@ -223,12 +226,12 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us */}
-        <section id="why-us" className="py-24">
+        <section id="why-us" className="py-28">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid md:grid-cols-2 gap-14 items-center">
               <div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-mono">Why Choose Arun Computers?</h2>
-                <p className="text-muted-foreground mb-8 text-lg">We don't just fix devices; we deliver peace of mind. With over a decade of experience, our chip-level experts solve problems others give up on.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Arun Computers?</h2>
+                <p className="text-muted-foreground/70 mb-8 text-sm font-light leading-relaxed">We don't just fix devices — we deliver peace of mind. With over a decade of experience, our chip-level experts solve problems others give up on.</p>
                 
                 <div className="space-y-6">
                   {features.map((feature, idx) => (
@@ -240,12 +243,12 @@ export default function Home() {
                       transition={{ duration: 0.4, delay: idx * 0.1 }}
                       className="flex gap-4"
                     >
-                      <div className="mt-1 w-10 h-10 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary">
-                        <feature.icon size={20} />
+                      <div className="mt-0.5 w-9 h-9 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary/80">
+                        <feature.icon size={18} />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold mb-1">{feature.title}</h4>
-                        <p className="text-muted-foreground">{feature.desc}</p>
+                        <h4 className="text-base font-semibold mb-0.5">{feature.title}</h4>
+                        <p className="text-muted-foreground/70 text-sm font-light">{feature.desc}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -288,11 +291,11 @@ export default function Home() {
         </section>
 
         {/* Location Section */}
-        <section id="location" className="py-24 bg-card/30 border-t border-border">
+        <section id="location" className="py-28 bg-card/20 border-t border-border/50">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 font-mono">Visit Our Workshop</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Conveniently located in Gachibowli, ready to serve you.</p>
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Visit Our Workshop</h2>
+              <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Conveniently located in Gachibowli, ready to serve you.</p>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
@@ -342,21 +345,21 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[300px] bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <section className="py-28 relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/4"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[250px] bg-primary/12 blur-[90px] rounded-full pointer-events-none"></div>
           
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 font-mono">Need Urgent Laptop Repair?</h2>
-            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">Contact us now! Available 10 AM – 9 PM, All Days Including Sunday.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Need Urgent Laptop Repair?</h2>
+            <p className="text-base text-muted-foreground/70 mb-9 max-w-lg mx-auto font-light">Available 10 AM – 9 PM, All Days Including Sunday.</p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="tel:+919666347154" className="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-primary/90 transition-all glow-effect hover:scale-105">
-                <Phone size={22} />
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <a href="tel:+919666347154" data-testid="button-call-cta" className="bg-primary text-white px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-purple hover:scale-[1.03] active:scale-[0.98] transition-all duration-200">
+                <Phone size={20} />
                 Call Now
               </a>
-              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 text-lg hover:bg-secondary/90 transition-all glow-effect-cyan hover:scale-105">
-                <SiWhatsapp size={22} />
+              <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" data-testid="button-whatsapp-cta" className="bg-secondary text-secondary-foreground px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-cyan hover:scale-[1.03] active:scale-[0.98] transition-all duration-200">
+                <SiWhatsapp size={20} />
                 WhatsApp Us
               </a>
             </div>

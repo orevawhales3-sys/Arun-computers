@@ -1,0 +1,126 @@
+Refine and polish the existing "Arun Computers" website UI. Do NOT rebuild from scratch—only improve design quality, spacing, colors, and visual hierarchy.
+
+---
+
+## TITLE (MAIN HEADING IMPROVEMENT)
+
+* Update "Arun Computers" text styling:
+
+Use a subtle gradient:
+
+* Start: #FFFFFF (white)
+
+* End: #8B5CF6 (soft purple)
+
+* Apply very soft glow (low opacity)
+
+* Keep it clean and readable (no heavy neon effects)
+
+Goal:
+Make the title look premium, not flat.
+
+---
+
+## HERO SECTION SPACING
+
+* Reduce vertical spacing between:
+  Title → Subtitle → Small text
+
+* Align everything tighter for a compact and clean layout
+
+* Maintain good breathing space but avoid too much empty space
+
+---
+
+## BADGE FIX ("10+ Years...")
+
+* Reduce size slightly
+* Reduce brightness / glow
+* Make it less attention-grabbing than main title
+
+Goal:
+Support content, not dominate it
+
+---
+
+## BUTTON IMPROVEMENTS
+
+Call Button:
+
+* Reduce glow intensity
+* Keep clean purple tone (#8B5CF6)
+
+WhatsApp Button:
+
+* Keep cyan (#22D3EE)
+* Slight hover glow is fine
+
+Both buttons:
+
+* Smooth hover animation (scale slightly + glow)
+* Rounded corners
+* Clean shadow
+
+---
+
+## NAVBAR LOGO FIX
+
+* Reduce brightness of logo glow
+* Keep it subtle and professional
+* Ensure it doesn't distract from navigation
+
+---
+
+## BACKGROUND ENHANCEMENT
+
+* Keep current purple theme
+* Improve background with:
+
+Gradient:
+#0F0A1F → #1A1235
+
+* Add very soft radial glow behind hero text
+* Keep it subtle (not flashy)
+
+---
+
+## TYPOGRAPHY REFINEMENT
+
+* Use Inter or Poppins font
+* Reduce excessive bold usage
+* Improve hierarchy:
+
+Title → bold
+Subtitle → medium
+Text → light
+
+---
+
+## SECTION SPACING
+
+* Increase spacing between sections slightly
+* Ensure consistent padding across all sections
+
+---
+
+## SERVICE CARDS
+
+* Add soft shadow
+* Add hover effect:
+  lift + slight glow
+* Maintain clean spacing and alignment
+
+---
+
+## FINAL GOAL
+
+The website should feel:
+
+* premium
+* modern
+* clean
+* balanced
+* visually attractive
+* not over-designed
+
+Focus on polish, not adding new features.

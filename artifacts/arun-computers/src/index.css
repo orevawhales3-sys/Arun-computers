@@ -170,20 +170,57 @@
   }
 }
 
+/* Legacy - kept for compatibility */
 .glow-effect {
-  box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.4);
+  box-shadow: 0 0 16px -6px hsl(var(--primary) / 0.35);
 }
 .glow-effect-hover:hover {
-  box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.6);
+  box-shadow: 0 0 22px -6px hsl(var(--primary) / 0.45);
 }
 .glow-effect-red {
-  box-shadow: 0 0 20px -5px hsl(var(--destructive) / 0.4);
+  box-shadow: 0 0 16px -6px hsl(var(--destructive) / 0.35);
 }
 .glow-effect-green {
-  box-shadow: 0 0 20px -5px #25D36666;
+  box-shadow: 0 0 16px -6px #25D36655;
 }
 .glow-effect-cyan {
-  box-shadow: 0 0 20px -5px hsl(188 83% 53% / 0.5);
+  box-shadow: 0 0 16px -6px hsl(188 83% 53% / 0.4);
+}
+
+/* Refined button glows */
+.btn-glow-purple {
+  box-shadow: 0 0 18px -6px hsl(262 88% 66% / 0.45);
+}
+.btn-glow-purple:hover {
+  box-shadow: 0 0 24px -4px hsl(262 88% 66% / 0.55);
+}
+.btn-glow-cyan {
+  box-shadow: 0 0 18px -6px hsl(188 83% 53% / 0.4);
+}
+.btn-glow-cyan:hover {
+  box-shadow: 0 0 24px -4px hsl(188 83% 53% / 0.55);
+}
+
+/* Title gradient: white → soft purple */
+.title-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 28px hsl(262 88% 66% / 0.15));
+}
+
+/* Service card shadow */
+.service-card-shadow {
+  box-shadow: 0 4px 20px -8px hsl(262 88% 66% / 0.12);
+}
+.service-card-shadow:hover {
+  box-shadow: 0 8px 28px -8px hsl(262 88% 66% / 0.28);
+}
+
+/* Background gradient */
+.bg-hero-gradient {
+  background: linear-gradient(160deg, #0F0A1F 0%, #1A1235 100%);
 }
 
 @layer utilities {
