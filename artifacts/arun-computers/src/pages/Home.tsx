@@ -193,7 +193,7 @@ export default function Home() {
         {/* Top ambient glow inside navbar */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/3 to-transparent pointer-events-none" />
 
-        <div className="container mx-auto pl-3 pr-5 md:pl-5 md:pr-6 h-[70px] md:h-[84px] flex items-center justify-between relative z-10">
+        <div className="w-full pl-4 pr-4 md:pl-8 md:pr-8 h-[70px] md:h-[84px] flex items-center justify-between relative z-10">
 
           {/* Logo + Brand */}
           <div className="flex items-center gap-3 cursor-pointer group" onClick={handleHome}>
@@ -209,7 +209,7 @@ export default function Home() {
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav className="hidden md:flex items-center gap-10 lg:gap-14">
             <button onClick={handleHome} className="nav-link text-[15px]">Home</button>
             <button onClick={() => scrollTo('services')} className="nav-link text-[15px]">Services</button>
             <button onClick={() => scrollTo('why-us')} className="nav-link text-[15px]">About</button>
