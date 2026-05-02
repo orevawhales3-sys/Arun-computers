@@ -89,9 +89,13 @@ export default function Home() {
       {/* Sticky Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            <img src="/logo.png" alt="Arun Computers Logo" className="w-10 h-10 object-contain rounded" onError={(e) => { e.currentTarget.style.display='none'; }} />
-            <span className="text-xl font-bold tracking-tight font-mono">Arun Computers</span>
+          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0,0)}>
+            <img
+              src="/logo.svg"
+              alt="Arun Computers Logo"
+              className="w-9 h-7 object-contain flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]"
+            />
+            <span className="text-lg font-bold tracking-tight">Arun Computers</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
