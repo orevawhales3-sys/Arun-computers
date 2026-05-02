@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 
-function CountUp({ target, duration = 1800 }: { target: number; duration?: number }) {
+function CountUp({ target, duration = 1800, decimals = 0 }: { target: number; duration?: number; decimals?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -42,7 +42,7 @@ function CountUp({ target, duration = 1800 }: { target: number; duration?: numbe
           const tick = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
+            setCount(parseFloat((eased * target).toFixed(decimals)));
             if (progress < 1) requestAnimationFrame(tick);
             else setCount(target);
           };
@@ -53,9 +53,9 @@ function CountUp({ target, duration = 1800 }: { target: number; duration?: numbe
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [target, duration]);
+  }, [target, duration, decimals]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref}>{count.toFixed(decimals)}</span>;
 }
 
 export default function Home() {
@@ -186,30 +186,43 @@ export default function Home() {
       </div>
 
       {/* ─── STICKY HEADER ─── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-white/6 shadow-[0_1px_32px_0_hsl(262_88%_66%/0.1)] transition-all duration-300">
-        <div className="container mx-auto px-4 h-[72px] md:h-24 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/75 backdrop-blur-2xl transition-all duration-300 overflow-hidden">
+        {/* Gradient bottom border glow */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="absolute bottom-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-secondary/40 to-transparent blur-[1px]" />
+        {/* Top ambient glow inside navbar */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/3 to-transparent pointer-events-none" />
+
+        <div className="container mx-auto px-5 h-[70px] md:h-[84px] flex items-center justify-between relative z-10">
 
           {/* Logo + Brand */}
           <div className="flex items-center gap-3 cursor-pointer group" onClick={handleHome}>
-            <img
-              src="/logo-user.png"
-              alt="Arun Computers Logo"
-              className="w-9 h-9 md:w-11 md:h-11 object-contain flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]"
-            />
-            <span className="text-base md:text-lg font-bold tracking-tight brand-gradient-text">Arun Computers</span>
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 blur-md rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <img
+                src="/logo-user.png"
+                alt="Arun Computers Logo"
+                className="relative w-9 h-9 md:w-10 md:h-10 object-contain flex-shrink-0 transition-all duration-300 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_14px_rgba(139,92,246,0.65)]"
+              />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-[15px] md:text-[17px] font-bold tracking-tight brand-gradient-text">Arun Computers</span>
+              <span className="text-[10px] text-muted-foreground/50 font-medium tracking-widest uppercase hidden md:block">Gachibowli, Hyderabad</span>
+            </div>
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-10 text-sm font-medium">
-            <button onClick={handleHome} className="nav-link">Home</button>
-            <button onClick={() => scrollTo('services')} className="nav-link">Services</button>
-            <button onClick={() => scrollTo('why-us')} className="nav-link">Why Us</button>
-            <button onClick={() => scrollTo('location')} className="nav-link">Location</button>
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+            <button onClick={handleHome} className="nav-link text-[15px]">Home</button>
+            <button onClick={() => scrollTo('services')} className="nav-link text-[15px]">Services</button>
+            <button onClick={() => scrollTo('why-us')} className="nav-link text-[15px]">About</button>
+            <button onClick={() => scrollTo('location')} className="nav-link text-[15px]">Contact</button>
+            <button onClick={() => scrollTo('location')} className="nav-link text-[15px]">Location</button>
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {/* Desktop Call Now */}
-            <a href="tel:+919666347154" data-testid="button-call-nav" className="hidden md:flex bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm items-center gap-2 btn-glow-purple hover:scale-[1.05] active:scale-95 transition-all duration-200 shadow-[0_0_24px_-6px_hsl(262_88%_66%/0.5)]">
+            <a href="tel:+919666347154" data-testid="button-call-nav" className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm btn-glow-purple hover:scale-[1.05] active:scale-95 transition-all duration-200 shadow-[0_0_28px_-4px_hsl(262_88%_66%/0.55)]">
               <Phone size={15} />
               Call Now
             </a>
@@ -218,10 +231,24 @@ export default function Home() {
             <button
               data-testid="button-hamburger"
               onClick={() => setMenuOpen(v => !v)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground/80 hover:text-primary hover:border-primary/30 transition-all"
+              className="md:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all duration-200"
               aria-label="Toggle menu"
             >
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              <motion.span
+                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.22 }}
+                className="block w-5 h-0.5 bg-foreground/80 rounded-full origin-center"
+              />
+              <motion.span
+                animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.18 }}
+                className="block w-5 h-0.5 bg-foreground/80 rounded-full"
+              />
+              <motion.span
+                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.22 }}
+                className="block w-5 h-0.5 bg-foreground/80 rounded-full origin-center"
+              />
             </button>
           </div>
         </div>
@@ -264,16 +291,20 @@ export default function Home() {
                 {[
                   { label: 'Home', action: handleHome },
                   { label: 'Services', action: () => scrollTo('services') },
-                  { label: 'Why Us', action: () => scrollTo('why-us') },
+                  { label: 'About', action: () => scrollTo('why-us') },
+                  { label: 'Contact', action: () => scrollTo('location') },
                   { label: 'Location', action: () => scrollTo('location') },
-                ].map(item => (
-                  <button
+                ].map((item, idx) => (
+                  <motion.button
                     key={item.label}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: idx * 0.05 }}
                     onClick={item.action}
-                    className="text-left px-4 py-3.5 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"
+                    className="text-left px-4 py-3.5 rounded-xl text-[15px] font-medium text-muted-foreground hover:text-foreground hover:bg-white/6 border border-transparent hover:border-white/8 transition-all duration-200"
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 ))}
               </nav>
 
@@ -395,10 +426,10 @@ export default function Home() {
           <div className="container mx-auto px-5 py-8 md:py-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
               {[
-                { target: 1000, suffix: "+", label: "Repairs Done", color: "text-primary" },
-                { target: 10,   suffix: "+", label: "Years of Service", color: "text-secondary" },
-                { target: 15,   suffix: "+", label: "Services Offered", color: "text-primary" },
-                { target: 5,    suffix: "★", label: "Avg. Customer Rating", color: "text-amber-400" },
+                { target: 1000, suffix: "+", label: "Repairs Done", color: "text-primary", decimals: 0 },
+                { target: 10,   suffix: "+", label: "Years of Service", color: "text-secondary", decimals: 0 },
+                { target: 20,   suffix: "+", label: "Services Offered", color: "text-primary", decimals: 0 },
+                { target: 4.9,  suffix: "★", label: "Avg. Customer Rating", color: "text-amber-400", decimals: 1 },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -409,7 +440,7 @@ export default function Home() {
                   className="flex flex-col items-center text-center gap-1 group"
                 >
                   <div className={`text-3xl md:text-4xl font-bold tabular-nums tracking-tight ${stat.color} drop-shadow-[0_0_16px_currentColor] transition-all duration-300`}>
-                    <CountUp target={stat.target} duration={1600 + idx * 100} />
+                    <CountUp target={stat.target} duration={1600 + idx * 100} decimals={stat.decimals} />
                     <span>{stat.suffix}</span>
                   </div>
                   <div className="text-xs md:text-sm text-muted-foreground/70 font-medium">{stat.label}</div>
