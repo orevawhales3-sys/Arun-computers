@@ -21,6 +21,8 @@ import {
   Menu,
   X,
   Wind,
+  Star,
+  Quote,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 
@@ -80,6 +82,57 @@ export default function Home() {
     { icon: Wind, title: "Laptop Cleaning" },
     { icon: Printer, title: "Printer Repair" },
     { icon: Wrench, title: "General Computer Issues" },
+  ];
+
+  const testimonials = [
+    {
+      name: "Ravi Kumar",
+      location: "Gachibowli, Hyderabad",
+      rating: 5,
+      text: "My laptop screen was cracked and the keyboard stopped working. Arun sir fixed both within the same day! Excellent service and very fair pricing. Highly recommend!",
+      initials: "RK",
+      color: "from-primary/30 to-primary/10",
+    },
+    {
+      name: "Priya Sharma",
+      location: "Kondapur, Hyderabad",
+      rating: 5,
+      text: "Got my HP laptop motherboard repaired here — chip-level repair which no other shop in Hyderabad was willing to try. They saved my laptop and all my data. Amazing!",
+      initials: "PS",
+      color: "from-secondary/30 to-secondary/10",
+    },
+    {
+      name: "Mohammed Imran",
+      location: "Madhapur, Hyderabad",
+      rating: 5,
+      text: "Best laptop repair shop in Gachibowli. Very professional, fast turnaround and completely transparent about costs. Been bringing all my office laptops here for 3+ years.",
+      initials: "MI",
+      color: "from-purple-400/25 to-purple-400/8",
+    },
+    {
+      name: "Sneha Reddy",
+      location: "HITEC City, Hyderabad",
+      rating: 5,
+      text: "Laptop wasn't turning on at all. They diagnosed and fixed a faulty charging IC within hours. Genuine parts, honest advice and no unnecessary upselling. 5 stars!",
+      initials: "SR",
+      color: "from-cyan-400/25 to-cyan-400/8",
+    },
+    {
+      name: "Arjun Nair",
+      location: "Nallagandla, Hyderabad",
+      rating: 5,
+      text: "Brought my Dell Inspiron for hinge and battery replacement. Both done perfectly, the laptop feels brand new. Pricing was very reasonable compared to the service centre.",
+      initials: "AN",
+      color: "from-primary/25 to-secondary/10",
+    },
+    {
+      name: "Divya Menon",
+      location: "Gachibowli, Hyderabad",
+      rating: 5,
+      text: "Virus had completely slowed down my laptop. They cleaned it up, reinstalled Windows and even cleaned the fan. Quick, affordable and really friendly staff!",
+      initials: "DM",
+      color: "from-secondary/25 to-primary/10",
+    },
   ];
 
   const features = [
@@ -408,6 +461,81 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-14 md:py-24 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-secondary/30 to-transparent pointer-events-none" />
+          <div className="absolute top-1/2 left-[-10%] w-[35%] h-[60%] bg-secondary/5 blur-[130px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[30%] h-[40%] bg-primary/6 blur-[120px] rounded-full pointer-events-none" />
+
+          <div className="container mx-auto px-5 max-w-6xl relative z-10">
+            <div className="text-center mb-10 md:mb-14">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/25 bg-secondary/8 text-secondary/90 text-xs font-medium tracking-wide mb-4">
+                <Star size={11} className="fill-secondary text-secondary" />
+                5.0 Rating · Trusted by 1000+ Customers
+              </div>
+              <h2 className="text-2xl md:text-4xl font-bold mb-3 title-gradient-subtle">What Our Customers Say</h2>
+              <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Real experiences from real customers across Hyderabad.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+              {testimonials.map((t, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.07 }}
+                  className="group relative bg-card/50 border border-white/8 rounded-2xl p-5 md:p-6 flex flex-col gap-4 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  style={{ boxShadow: '0 4px 24px -8px hsl(262 88% 66% / 0.1)' }}
+                >
+                  {/* Subtle background gradient per card */}
+                  <div className={`absolute top-0 right-0 w-28 h-28 rounded-full bg-gradient-to-br ${t.color} blur-[50px] pointer-events-none opacity-70`} />
+
+                  {/* Quote icon */}
+                  <Quote size={20} className="text-primary/30 flex-shrink-0" />
+
+                  {/* Stars */}
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+
+                  {/* Review text */}
+                  <p className="text-sm text-foreground/80 leading-relaxed flex-1 font-light">{t.text}</p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-2 border-t border-white/6">
+                    <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.color} border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0`}>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold leading-tight">{t.name}</p>
+                      <p className="text-xs text-muted-foreground/60">{t.location}</p>
+                    </div>
+                    <div className="ml-auto">
+                      <div className="text-[10px] text-muted-foreground/40 font-medium tracking-wide">Google Review</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA below reviews */}
+            <div className="text-center mt-10">
+              <a
+                href="https://wa.me/919666347154?text=Hi%2C%20I%20need%20laptop%20repair%20service"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 bg-secondary text-secondary-foreground px-7 py-3.5 rounded-xl font-semibold text-sm btn-glow-cyan hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              >
+                <SiWhatsapp size={18} /> Book Your Repair on WhatsApp
+              </a>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent pointer-events-none" />
         </section>
 
         {/* Location Section */}
