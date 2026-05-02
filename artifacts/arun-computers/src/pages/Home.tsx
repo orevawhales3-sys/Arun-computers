@@ -172,7 +172,7 @@ export default function Home() {
   const features = [
     { icon: ShieldCheck, title: "10+ Years Experience", desc: "Trusted by thousands of customers in Hyderabad" },
     { icon: Microchip, title: "Chip-Level Repair Expertise", desc: "We fix what others can't" },
-    { icon: Clock, title: "Fast & Reliable Service", desc: "Most repairs done same day" },
+    { icon: Clock, title: "Fast & Reliable Service", desc: "Quick turnaround, minimal downtime" },
     { icon: ThumbsUp, title: "All Brands Supported", desc: "Dell, HP, Lenovo, Asus, Acer, Apple & more" },
     { icon: Wrench, title: "Affordable Pricing", desc: "Best quality at fair prices, no hidden charges" },
   ];
@@ -723,7 +723,7 @@ export default function Home() {
                 <span className="text-lg font-bold brand-gradient-text">Arun Computers</span>
               </div>
               <p className="text-muted-foreground/70 text-sm leading-relaxed mb-5 max-w-xs font-light">
-                Expert laptop &amp; desktop repair in Gachibowli, Hyderabad. Chip-level repairs, all brands supported, same-day service.
+                Expert laptop &amp; desktop repair in Gachibowli, Hyderabad. Chip-level repairs, all brands supported, fast turnaround.
               </p>
               <div className="flex gap-3">
                 <a href="tel:+919666347154" className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary/20 transition-all">
