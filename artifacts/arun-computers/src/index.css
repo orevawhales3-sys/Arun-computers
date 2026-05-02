@@ -203,11 +203,56 @@
 
 /* Title gradient: white → soft purple */
 .title-gradient {
-  background: linear-gradient(135deg, #ffffff 30%, #c4b5fd 100%);
+  background: linear-gradient(135deg, #ffffff 20%, #c4b5fd 70%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 28px hsl(262 88% 66% / 0.15));
+  filter: drop-shadow(0 0 32px hsl(262 88% 66% / 0.2));
+}
+
+/* Subtle gradient for section headings */
+.title-gradient-subtle {
+  background: linear-gradient(135deg, #ffffff 40%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand name gradient */
+.brand-gradient-text {
+  background: linear-gradient(90deg, #e0d7ff 0%, #c4b5fd 50%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navbar link with gradient hover + glow + underline */
+.nav-link {
+  position: relative;
+  color: hsl(var(--muted-foreground));
+  transition: all 0.22s ease;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+.nav-link:hover {
+  background: linear-gradient(90deg, #c4b5fd, #a5f3fc, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px hsl(188 83% 53% / 0.35));
+}
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* Service card shadow */
