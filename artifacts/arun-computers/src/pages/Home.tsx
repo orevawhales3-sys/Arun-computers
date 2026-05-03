@@ -464,13 +464,21 @@ export default function Home() {
         <section id="services" className="py-14 md:py-24 bg-card/15 border-y border-white/6 relative">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
           <div className="container mx-auto px-5 max-w-5xl">
-            <div className="text-center mb-8 md:mb-10">
+            <motion.div
+              className="text-center mb-8 md:mb-10"
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }}
+            >
               <h2 className="text-2xl md:text-4xl font-bold mb-3 title-gradient-subtle">Our Services</h2>
               <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Comprehensive repair solutions for all your tech needs.</p>
-            </div>
+            </motion.div>
 
             {/* Tab buttons */}
-            <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-8 md:mb-10">
+            <motion.div
+              className="flex gap-2 md:gap-3 justify-center flex-wrap mb-8 md:mb-10"
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45, delay: 0.1 }}
+            >
               {serviceTabs.map(tab => {
                 const active = activeTab === tab.id;
                 return (
@@ -488,7 +496,7 @@ export default function Home() {
                   </button>
                 );
               })}
-            </div>
+            </motion.div>
 
             {/* Tab description */}
             <p className="text-center text-muted-foreground/60 text-xs md:text-sm mb-8 font-light">
@@ -603,7 +611,11 @@ export default function Home() {
 
           <div className="container mx-auto px-5 max-w-6xl relative z-10">
             {/* Heading */}
-            <div className="text-center mb-10 md:mb-14">
+            <motion.div
+              className="text-center mb-10 md:mb-14"
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }}
+            >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary/90 text-xs font-medium tracking-wide mb-4">
                 <Camera size={11} />
                 Our Workshop
@@ -612,7 +624,7 @@ export default function Home() {
               <p className="text-muted-foreground/70 text-sm md:text-base max-w-md mx-auto font-light">
                 A real look at our shop, tools, and the devices we bring back to life every day.
               </p>
-            </div>
+            </motion.div>
 
             {/* Photo grid */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
@@ -622,8 +634,12 @@ export default function Home() {
                 { src: "/gallery/laptop-1.jpg",      label: "Ready to Go",   span: "" },
                 { src: "/gallery/laptop-2.jpg",      label: "Serviced & Tested", span: "" },
               ].map((img, i) => (
-                <div
+                <motion.div
                   key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
                   className={`group relative rounded-2xl overflow-hidden border border-white/6 ${img.span} aspect-[4/3]`}
                   style={{ boxShadow: "0 4px 32px -8px rgba(139,92,246,0.15)" }}
                 >
@@ -638,7 +654,7 @@ export default function Home() {
                   <span className="absolute bottom-3 left-4 text-white/90 text-xs md:text-sm font-semibold tracking-wide drop-shadow">
                     {img.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -722,13 +738,21 @@ export default function Home() {
         {/* Location Section */}
         <section id="location" className="py-14 md:py-24 bg-card/15 border-t border-white/6">
           <div className="container mx-auto px-5 max-w-6xl">
-            <div className="text-center mb-10 md:mb-14">
+            <motion.div
+              className="text-center mb-10 md:mb-14"
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }}
+            >
               <h2 className="text-2xl md:text-4xl font-bold mb-2.5">Visit Our Workshop</h2>
               <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Conveniently located in Gachibowli, ready to serve you.</p>
-            </div>
+            </motion.div>
 
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 md:gap-8">
-              <div className="lg:col-span-1 flex flex-col gap-4">
+              <motion.div
+                className="lg:col-span-1 flex flex-col gap-4"
+                initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: 0.1 }}
+              >
                 <div className="bg-card/60 border border-white/10 p-5 rounded-2xl">
                   <h3 className="text-base md:text-xl font-bold mb-3 flex items-center gap-2"><MapPin className="text-primary" size={18} /> Address</h3>
                   <p className="text-muted-foreground leading-relaxed mb-5 text-sm">
@@ -754,9 +778,13 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="lg:col-span-2 h-[280px] sm:h-[340px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_4px_32px_-8px_hsl(262_88%_66%/0.15)]">
+              <motion.div
+                className="lg:col-span-2 h-[280px] sm:h-[340px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 relative shadow-[0_4px_32px_-8px_hsl(262_88%_66%/0.15)]"
+                initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: 0.15 }}
+              >
                 <iframe
                   src="https://maps.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad&output=embed"
                   width="100%"
@@ -768,7 +796,7 @@ export default function Home() {
                   title="Arun Computers Location"
                   className="absolute inset-0"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -779,7 +807,13 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[220px] bg-primary/15 blur-[90px] rounded-full pointer-events-none" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm h-[120px] bg-secondary/8 blur-[60px] rounded-full pointer-events-none" />
 
-          <div className="container mx-auto px-5 relative z-10 text-center">
+          <motion.div
+            className="container mx-auto px-5 relative z-10 text-center"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55 }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3">Need Urgent Laptop Repair?</h2>
             <p className="text-sm md:text-base text-muted-foreground/70 mb-8 max-w-lg mx-auto font-light">Available 10 AM – 9 PM, Monday to Sunday.</p>
 
@@ -791,7 +825,7 @@ export default function Home() {
                 <SiWhatsapp size={20} /> WhatsApp Us
               </a>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 
