@@ -848,11 +848,11 @@ export default function Home() {
         <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[40%] h-[120px] bg-primary/5 blur-[80px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-5 pt-12 pb-8 max-w-6xl relative z-10">
-          {/* Main footer grid — 4 columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10">
+          {/* Main footer grid — 2 columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-10">
 
             {/* Brand column */}
-            <div className="col-span-2 md:col-span-1">
+            <div>
               <div className="flex items-center gap-3 mb-4">
                 <img src="/logo-user.png" alt="Arun Computers Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
                 <span className="text-base font-bold brand-gradient-text">Arun Computers</span>
@@ -868,28 +868,6 @@ export default function Home() {
                   <SiWhatsapp size={13} /> WhatsApp
                 </a>
               </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase text-xs">Services</h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground/65 font-light">
-                {["Laptop Repair", "Screen Replacement", "Battery Replacement", "Chip-Level Repair", "OS Installation", "Virus Removal"].map(s => (
-                  <li key={s} className="hover:text-primary transition-colors duration-200 cursor-default">{s}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase text-xs">Quick Links</h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground/65 font-light">
-                <li><button onClick={handleHome} className="hover:text-primary transition-colors duration-200 text-left">Home</button></li>
-                <li><button onClick={() => scrollTo('services')} className="hover:text-primary transition-colors duration-200 text-left">Services</button></li>
-                <li><button onClick={() => scrollTo('why-us')} className="hover:text-primary transition-colors duration-200 text-left">About Us</button></li>
-                <li><button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors duration-200 text-left">Contact</button></li>
-                <li><button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors duration-200 text-left">Location</button></li>
-              </ul>
             </div>
 
             {/* Contact Info */}
