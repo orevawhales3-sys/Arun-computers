@@ -1,0 +1,60 @@
+Upgrade the entire website UI to a premium, modern, and conversion-focused design while keeping it clean and responsive.
+
+NAVBAR:
+- Make navbar sticky on scroll
+- Add glassmorphism effect (blur + slight transparency)
+- Add subtle bottom gradient border (blue/purple glow)
+- Improve spacing between menu items
+- Increase font size and weight slightly
+- Change text color to brighter white/light blue
+- Add smooth hover effect (underline animation or glow)
+- Ensure mobile hamburger menu works smoothly with animation
+
+HERO SECTION:
+- Increase size of "Arun Computers" heading slightly
+- Add subheading: "Fast, Reliable & Affordable Laptop Repair in Gachibowli"
+- Reduce empty space on left and right
+- Add subtle animated gradient glow or floating shapes in background
+- Slightly increase size of icons below (experience, brands, open days)
+- Keep buttons large, clear, and well spaced
+
+TEXT FIX:
+- Replace "same-day service" with "Fast & Reliable Service with Quick Turnaround"
+
+SERVICES SECTION:
+- Add new service: "Laptop Cleaning"
+- Change "Hard Disk Repair" to "Hard Disk Replacement"
+- Improve spacing between cards
+- Add hover animation (cards lift slightly)
+- Add subtle glow effect on hover
+- Slightly increase icon size inside cards
+- Highlight key services (Laptop Repair, Screen Replacement)
+
+FOOTER:
+- Redesign footer to look premium
+- Add sections: Services | Contact | Quick Links
+- Add phone number, location, and WhatsApp clearly
+- Add small icons for contact info
+- Add subtle top border glow
+- Improve spacing and alignment
+
+CONVERSION BOOST:
+- Add floating sticky bottom bar for mobile with:
+  - Call Now button
+  - WhatsApp button
+
+DESIGN ENHANCEMENTS:
+- Improve overall spacing and alignment
+- Reduce unnecessary empty areas
+- Maintain dark premium theme
+- Add subtle gradients and glow effects for depth
+- Ensure everything looks balanced and modern
+
+RESPONSIVE:
+- Ensure everything works perfectly on mobile and desktop
+- No layout breaking
+- Maintain smooth animations
+
+Do not rebuild from scratch.
+Only enhance and improve the current design.
+Keep everything clean, modern, and professional.

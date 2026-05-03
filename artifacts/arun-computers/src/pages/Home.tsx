@@ -335,7 +335,12 @@ export default function Home() {
       <main className="relative z-10 pt-[72px] md:pt-24 pb-20 md:pb-0">
 
         {/* Hero Section */}
-        <section className="min-h-[88vh] md:min-h-[85vh] flex items-center pt-8 pb-14 md:pt-10 md:pb-20 relative">
+        <section className="min-h-[88vh] md:min-h-[85vh] flex items-center pt-8 pb-14 md:pt-10 md:pb-20 relative overflow-hidden">
+          {/* Animated floating orbs */}
+          <div className="absolute top-[18%] left-[8%] w-40 h-40 bg-secondary/18 blur-[70px] rounded-full pointer-events-none hero-orb-1" />
+          <div className="absolute bottom-[20%] right-[10%] w-32 h-32 bg-primary/22 blur-[60px] rounded-full pointer-events-none hero-orb-2" />
+          <div className="absolute top-[55%] left-[55%] w-24 h-24 bg-secondary/12 blur-[50px] rounded-full pointer-events-none hero-orb-3" />
+
           <div className="container mx-auto px-5 text-center max-w-5xl">
 
             <motion.div
@@ -375,9 +380,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.23 }}
-              className="text-sm text-muted-foreground mb-1.5 font-light"
+              className="text-sm md:text-base text-muted-foreground/85 mb-1 font-medium"
             >
-              10+ Years Experience in Gachibowli
+              Fast, Reliable &amp; Affordable Laptop Repair in Gachibowli
             </motion.p>
 
             <motion.p
@@ -519,13 +524,20 @@ export default function Home() {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.28, delay: idx * 0.04 }}
-                    className="group bg-card/50 border border-white/8 rounded-2xl p-4 md:p-5 flex flex-col items-center text-center service-card-shadow hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 cursor-default"
+                    className={`group rounded-2xl p-4 md:p-5 flex flex-col items-center text-center service-card-shadow hover:border-primary/55 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_36px_-10px_hsl(262_88%_66%/0.32)] cursor-default ${
+                      (service.title === "Laptop Repair" || service.title === "Screen Replacement")
+                        ? "bg-primary/10 border border-primary/30"
+                        : "bg-card/50 border border-white/8"
+                    }`}
                   >
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 group-hover:border-primary/30 group-hover:shadow-[0_0_18px_-4px_hsl(262_88%_66%/0.4)] transition-all duration-300 text-primary/75 group-hover:text-primary">
-                      <service.icon size={22} />
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-3 group-hover:bg-primary/25 group-hover:border-primary/40 group-hover:shadow-[0_0_22px_-4px_hsl(262_88%_66%/0.5)] transition-all duration-300 text-primary/80 group-hover:text-primary">
+                      <service.icon size={24} />
                     </div>
                     <h3 className="font-semibold text-xs md:text-sm leading-snug text-foreground/90 group-hover:text-foreground transition-colors mb-1">{service.title}</h3>
                     <p className="text-[11px] text-muted-foreground/55 leading-snug">{service.desc}</p>
+                    {(service.title === "Laptop Repair" || service.title === "Screen Replacement") && (
+                      <span className="mt-2 text-[9px] font-semibold uppercase tracking-widest text-primary/70 border border-primary/20 bg-primary/8 px-2 py-0.5 rounded-full">Popular</span>
+                    )}
                   </motion.div>
                 ))}
               </motion.div>
@@ -836,53 +848,79 @@ export default function Home() {
         <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[40%] h-[120px] bg-primary/5 blur-[80px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-5 pt-12 pb-8 max-w-6xl relative z-10">
-          {/* Main footer grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          {/* Main footer grid — 4 columns */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10">
 
             {/* Brand column */}
-            <div className="lg:col-span-2">
+            <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
                 <img src="/logo-user.png" alt="Arun Computers Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
-                <span className="text-lg font-bold brand-gradient-text">Arun Computers</span>
+                <span className="text-base font-bold brand-gradient-text">Arun Computers</span>
               </div>
-              <p className="text-muted-foreground/70 text-sm leading-relaxed mb-5 max-w-xs font-light">
-                Expert laptop &amp; desktop repair in Gachibowli, Hyderabad. Chip-level repairs, all brands supported, fast turnaround.
+              <p className="text-muted-foreground/65 text-sm leading-relaxed mb-5 font-light">
+                Expert laptop &amp; desktop repair in Gachibowli, Hyderabad. Chip-level repairs, all brands, fast turnaround.
               </p>
               <div className="flex gap-3">
-                <a href="tel:+919666347154" className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary/20 transition-all">
-                  <Phone size={14} /> Call Us
+                <a href="tel:+919666347154" className="flex items-center gap-1.5 bg-primary/10 border border-primary/20 text-primary px-3 py-2 rounded-xl text-sm font-medium hover:bg-primary/20 transition-all">
+                  <Phone size={13} /> Call
                 </a>
-                <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary px-4 py-2 rounded-xl text-sm font-medium hover:bg-secondary/20 transition-all">
-                  <SiWhatsapp size={14} /> WhatsApp
+                <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 bg-secondary/10 border border-secondary/20 text-secondary px-3 py-2 rounded-xl text-sm font-medium hover:bg-secondary/20 transition-all">
+                  <SiWhatsapp size={13} /> WhatsApp
                 </a>
               </div>
             </div>
 
+            {/* Services */}
+            <div>
+              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase text-xs">Services</h4>
+              <ul className="space-y-2.5 text-sm text-muted-foreground/65 font-light">
+                {["Laptop Repair", "Screen Replacement", "Battery Replacement", "Chip-Level Repair", "OS Installation", "Virus Removal"].map(s => (
+                  <li key={s} className="hover:text-primary transition-colors duration-200 cursor-default">{s}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase text-xs">Quick Links</h4>
+              <ul className="space-y-2.5 text-sm text-muted-foreground/65 font-light">
+                <li><button onClick={handleHome} className="hover:text-primary transition-colors duration-200 text-left">Home</button></li>
+                <li><button onClick={() => scrollTo('services')} className="hover:text-primary transition-colors duration-200 text-left">Services</button></li>
+                <li><button onClick={() => scrollTo('why-us')} className="hover:text-primary transition-colors duration-200 text-left">About Us</button></li>
+                <li><button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors duration-200 text-left">Contact</button></li>
+                <li><button onClick={() => scrollTo('location')} className="hover:text-primary transition-colors duration-200 text-left">Location</button></li>
+              </ul>
+            </div>
+
             {/* Contact Info */}
             <div>
-              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide">Contact Info</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground/70 font-light">
-                <li className="flex gap-2">
-                  <Phone size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
-                  <a href="tel:+919666347154" className="hover:text-primary transition-colors">+91 9666347154</a>
+              <h4 className="text-sm font-semibold text-foreground mb-4 tracking-wide uppercase text-xs">Contact Info</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/65 font-light">
+                <li className="flex gap-2 items-center">
+                  <Phone size={13} className="text-primary/70 flex-shrink-0" />
+                  <a href="tel:+919666347154" className="hover:text-primary transition-colors font-medium text-foreground/85">+91 9666347154</a>
                 </li>
-                <li className="flex gap-2">
-                  <MapPin size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
+                <li className="flex gap-2 items-center">
+                  <SiWhatsapp size={13} className="text-secondary/70 flex-shrink-0" />
+                  <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" className="hover:text-secondary transition-colors">WhatsApp Us</a>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <MapPin size={13} className="text-primary/70 flex-shrink-0 mt-0.5" />
                   <span>Dno 2-33/3, Beside Sai Ram Photo Studio, Vinayak Nagar, Gachibowli, Hyderabad – 500032</span>
                 </li>
-                <li className="flex gap-2">
-                  <Clock size={14} className="text-primary/70 flex-shrink-0 mt-0.5" />
-                  <span>Open All Days · 10 AM – 9 PM</span>
+                <li className="flex gap-2 items-center">
+                  <Clock size={13} className="text-primary/70 flex-shrink-0" />
+                  <span>Mon–Sun · 10 AM – 9 PM</span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground/50">
+          <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground/45">
             <span>&copy; {new Date().getFullYear()} Arun Computers. All rights reserved.</span>
             <span className="flex items-center gap-1.5">
-              Owned &amp; operated by <span className="text-muted-foreground/70 font-medium">M. Arunkumar</span>
+              Owned &amp; operated by <span className="text-muted-foreground/65 font-medium">M. Arunkumar</span>
             </span>
           </div>
         </div>
