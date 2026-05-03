@@ -766,7 +766,18 @@ export default function Home() {
                 viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <div className="bg-card/60 border border-white/10 p-5 rounded-2xl">
-                  <h3 className="text-base md:text-xl font-bold mb-3 flex items-center gap-2"><MapPin className="text-primary" size={18} /> Address</h3>
+                  <h3 className="text-base md:text-xl font-bold mb-3 flex items-center gap-2">
+                    <a
+                      href="https://www.google.com/maps?q=Arun+Computers+Gachibowli+Hyderabad"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(139,92,246,0.7)]"
+                      title="Open in Google Maps"
+                    >
+                      <MapPin size={17} className="text-primary" />
+                    </a>
+                    Address
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed mb-5 text-sm">
                     Arun Computers,<br />
                     Dno 2-33/3, Beside Sai Ram Photo Studio,<br />
