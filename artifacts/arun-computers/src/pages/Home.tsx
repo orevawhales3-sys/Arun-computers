@@ -765,12 +765,11 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp — desktop only */}
+      {/* Floating WhatsApp — all screens */}
       <a
         href="https://wa.me/919666347154"
-        target="_blank"
         rel="noreferrer"
-        className="hidden md:flex fixed bottom-6 right-6 w-14 h-14 bg-secondary text-secondary-foreground rounded-full items-center justify-center btn-glow-cyan hover:scale-110 transition-transform z-50 animate-bounce shadow-[0_0_24px_-4px_hsl(188_83%_53%/0.6)]"
+        className="flex fixed bottom-[88px] md:bottom-6 right-5 md:right-6 w-14 h-14 bg-secondary text-secondary-foreground rounded-full items-center justify-center btn-glow-cyan hover:scale-110 transition-transform z-50 animate-bounce shadow-[0_0_24px_-4px_hsl(188_83%_53%/0.6)]"
         style={{ animationDuration: '2.5s' }}
         aria-label="Chat on WhatsApp"
       >
