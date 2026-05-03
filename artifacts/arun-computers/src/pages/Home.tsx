@@ -522,12 +522,8 @@ export default function Home() {
 
                 <div className="space-y-3 text-sm md:text-base relative z-10">
                   <div className="flex justify-between items-center pb-3 border-b border-white/8">
-                    <span className="text-muted-foreground">Monday – Saturday</span>
+                    <span className="text-muted-foreground">Monday – Sunday</span>
                     <span className="font-semibold">10 AM – 9 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-white/8">
-                    <span className="text-muted-foreground">Sunday</span>
-                    <span className="font-semibold text-primary">Open All Day</span>
                   </div>
                   <div className="pt-3 flex items-center justify-between">
                     <span className="font-medium">Current Status:</span>
@@ -741,7 +737,7 @@ export default function Home() {
 
           <div className="container mx-auto px-5 relative z-10 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3">Need Urgent Laptop Repair?</h2>
-            <p className="text-sm md:text-base text-muted-foreground/70 mb-8 max-w-lg mx-auto font-light">Available 10 AM – 9 PM, All Days Including Sunday.</p>
+            <p className="text-sm md:text-base text-muted-foreground/70 mb-8 max-w-lg mx-auto font-light">Available 10 AM – 9 PM, Monday to Sunday.</p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-xs sm:max-w-none mx-auto">
               <a href="tel:+919666347154" data-testid="button-call-cta" className="bg-primary text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-purple active:scale-[0.98] hover:scale-[1.03] transition-all duration-200 min-h-[52px] shadow-[0_0_30px_-8px_hsl(262_88%_66%/0.55)]">
