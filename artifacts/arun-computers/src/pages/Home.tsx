@@ -406,7 +406,7 @@ export default function Home() {
               <a href="https://wa.me/919666347154" target="_blank" rel="noreferrer" data-testid="button-whatsapp-hero" className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2.5 text-base btn-glow-cyan active:scale-[0.98] hover:scale-[1.03] transition-all duration-200 min-h-[52px] shadow-[0_0_30px_-8px_hsl(188_83%_53%/0.5)]">
                 <SiWhatsapp size={20} /> WhatsApp Us
               </a>
-              <a href="https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad" target="_blank" rel="noreferrer" data-testid="button-directions-hero" className="border border-white/12 bg-white/4 text-foreground/80 px-8 py-4 rounded-xl font-medium flex items-center justify-center gap-2.5 text-base hover:bg-white/8 hover:border-primary/35 transition-all duration-200 min-h-[52px]">
+              <a href="https://www.google.com/maps?q=Arun+Computers+2-33/3+Gachibowli+Hyderabad" target="_blank" rel="noreferrer" data-testid="button-directions-hero" className="border border-secondary/25 bg-white/6 backdrop-blur-sm text-foreground/90 px-8 py-4 rounded-xl font-medium flex items-center justify-center gap-2.5 text-base hover:bg-white/10 hover:border-secondary/50 hover:shadow-[0_0_18px_-4px_hsl(188_83%_53%/0.35)] hover:-translate-y-0.5 transition-all duration-200 min-h-[52px]">
                 <MapPin size={20} /> Get Directions
               </a>
             </motion.div>
