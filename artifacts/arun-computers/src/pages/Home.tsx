@@ -101,22 +101,30 @@ export default function Home() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  const [activeTab, setActiveTab] = useState<'hardware' | 'advanced' | 'software'>('hardware');
+
+  const serviceTabs = [
+    { id: 'hardware' as const, label: 'Hardware Repairs', icon: Wrench,    desc: 'Physical repairs and component replacements for all brands.' },
+    { id: 'advanced' as const, label: 'Chip-Level Repairs', icon: Microchip, desc: 'Board-level expertise — we fix what others can\'t.' },
+    { id: 'software' as const, label: 'Software & OS',    icon: HardDrive, desc: 'Software solutions, OS setup and full system cleanup.' },
+  ];
+
   const services = [
-    { icon: Monitor, title: "Laptop Repair (All Brands)" },
-    { icon: Cpu, title: "Desktop Repair" },
-    { icon: MonitorOff, title: "Screen Replacement" },
-    { icon: Battery, title: "Battery Replacement" },
-    { icon: Wrench, title: "Laptop Hinges Repair" },
-    { icon: Microchip, title: "Motherboard Repair (Chip-Level)" },
-    { icon: Activity, title: "IC & Circuit Repair" },
-    { icon: HardDrive, title: "OS Installation (Windows/Linux)" },
-    { icon: Wrench, title: "Software Installation" },
-    { icon: Bug, title: "Virus Removal" },
-    { icon: HardDrive, title: "Hard Disk Replacement" },
-    { icon: MemoryStick, title: "RAM Repair & Upgrade" },
-    { icon: Wind, title: "Laptop Cleaning" },
-    { icon: Printer, title: "Printer Repair" },
-    { icon: Wrench, title: "General Computer Issues" },
+    { icon: Monitor,    title: "Laptop Repair",          desc: "All brands & models",        tab: 'hardware' as const },
+    { icon: Cpu,        title: "Desktop Repair",          desc: "Tower & AIO systems",        tab: 'hardware' as const },
+    { icon: MonitorOff, title: "Screen Replacement",      desc: "Original quality panels",    tab: 'hardware' as const },
+    { icon: Battery,    title: "Battery Replacement",     desc: "All laptop models",          tab: 'hardware' as const },
+    { icon: Wrench,     title: "Laptop Hinges Repair",    desc: "Broken & stiff hinges",      tab: 'hardware' as const },
+    { icon: HardDrive,  title: "Hard Disk Replacement",   desc: "HDD & SSD upgrades",         tab: 'hardware' as const },
+    { icon: MemoryStick,title: "RAM Repair & Upgrade",    desc: "Speed up your device",       tab: 'hardware' as const },
+    { icon: Printer,    title: "Printer Repair",          desc: "All major brands",           tab: 'hardware' as const },
+    { icon: Wind,       title: "Laptop Cleaning",         desc: "Fan & thermal paste service",tab: 'hardware' as const },
+    { icon: Microchip,  title: "Motherboard Repair",      desc: "Deep chip-level diagnosis",  tab: 'advanced' as const },
+    { icon: Activity,   title: "IC & Circuit Repair",     desc: "Board-level soldering",      tab: 'advanced' as const },
+    { icon: HardDrive,  title: "OS Installation",         desc: "Windows & Linux",            tab: 'software' as const },
+    { icon: Wrench,     title: "Software Installation",   desc: "Any application you need",   tab: 'software' as const },
+    { icon: Bug,        title: "Virus Removal",           desc: "Full system cleanup",        tab: 'software' as const },
+    { icon: Wrench,     title: "General Computer Issues", desc: "All kinds of problems fixed",tab: 'software' as const },
   ];
 
   const testimonials = [
@@ -455,29 +463,65 @@ export default function Home() {
         {/* Services Section */}
         <section id="services" className="py-14 md:py-24 bg-card/15 border-y border-white/6 relative">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
-          <div className="container mx-auto px-5">
-            <div className="text-center mb-10 md:mb-14">
+          <div className="container mx-auto px-5 max-w-5xl">
+            <div className="text-center mb-8 md:mb-10">
               <h2 className="text-2xl md:text-4xl font-bold mb-3 title-gradient-subtle">Our Services</h2>
               <p className="text-muted-foreground/70 max-w-xl mx-auto text-sm font-light">Comprehensive repair solutions for all your tech needs.</p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-              {services.map((service, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: idx * 0.03 }}
-                  className="group bg-card/50 border border-white/8 rounded-2xl p-4 md:p-5 flex flex-col items-center text-center service-card-shadow hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 cursor-default"
-                >
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 group-hover:border-primary/30 group-hover:shadow-[0_0_18px_-4px_hsl(262_88%_66%/0.4)] transition-all duration-300 text-primary/75 group-hover:text-primary">
-                    <service.icon size={22} />
-                  </div>
-                  <h3 className="font-medium text-xs md:text-sm leading-snug text-foreground/85 group-hover:text-foreground transition-colors">{service.title}</h3>
-                </motion.div>
-              ))}
+            {/* Tab buttons */}
+            <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-8 md:mb-10">
+              {serviceTabs.map(tab => {
+                const active = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-semibold border transition-all duration-200 ${
+                      active
+                        ? 'bg-primary text-white border-primary/60 shadow-[0_0_22px_-4px_hsl(262_88%_66%/0.55)]'
+                        : 'bg-white/4 border-white/10 text-muted-foreground hover:bg-white/8 hover:border-white/20 hover:text-foreground'
+                    }`}
+                  >
+                    <tab.icon size={14} />
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
+
+            {/* Tab description */}
+            <p className="text-center text-muted-foreground/60 text-xs md:text-sm mb-8 font-light">
+              {serviceTabs.find(t => t.id === activeTab)?.desc}
+            </p>
+
+            {/* Service cards — animated on tab switch */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.22 }}
+                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+              >
+                {services.filter(s => s.tab === activeTab).map((service, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.28, delay: idx * 0.04 }}
+                    className="group bg-card/50 border border-white/8 rounded-2xl p-4 md:p-5 flex flex-col items-center text-center service-card-shadow hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 cursor-default"
+                  >
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 group-hover:border-primary/30 group-hover:shadow-[0_0_18px_-4px_hsl(262_88%_66%/0.4)] transition-all duration-300 text-primary/75 group-hover:text-primary">
+                      <service.icon size={22} />
+                    </div>
+                    <h3 className="font-semibold text-xs md:text-sm leading-snug text-foreground/90 group-hover:text-foreground transition-colors mb-1">{service.title}</h3>
+                    <p className="text-[11px] text-muted-foreground/55 leading-snug">{service.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent pointer-events-none" />
         </section>
