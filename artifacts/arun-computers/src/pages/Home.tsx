@@ -23,6 +23,7 @@ import {
   Wind,
   Star,
   Quote,
+  Camera,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 
@@ -551,6 +552,54 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Shop Gallery ─── */}
+        <section className="py-14 md:py-20 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
+          <div className="absolute top-1/4 right-[-8%] w-[30%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+
+          <div className="container mx-auto px-5 max-w-6xl relative z-10">
+            {/* Heading */}
+            <div className="text-center mb-10 md:mb-14">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary/90 text-xs font-medium tracking-wide mb-4">
+                <Camera size={11} />
+                Our Workshop
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold title-gradient mb-3">See Where the Magic Happens</h2>
+              <p className="text-muted-foreground/70 text-sm md:text-base max-w-md mx-auto font-light">
+                A real look at our shop, tools, and the devices we bring back to life every day.
+              </p>
+            </div>
+
+            {/* Photo grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+              {[
+                { src: "/gallery/shop-interior.jpg", label: "Our Workspace", span: "lg:col-span-2" },
+                { src: "/gallery/shop-sign.webp",    label: "Find Us Here",  span: "" },
+                { src: "/gallery/laptop-1.jpg",      label: "Ready to Go",   span: "" },
+                { src: "/gallery/laptop-2.jpg",      label: "Serviced & Tested", span: "" },
+              ].map((img, i) => (
+                <div
+                  key={i}
+                  className={`group relative rounded-2xl overflow-hidden border border-white/6 ${img.span} aspect-[4/3]`}
+                  style={{ boxShadow: "0 4px 32px -8px rgba(139,92,246,0.15)" }}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.label}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                  {/* Label */}
+                  <span className="absolute bottom-3 left-4 text-white/90 text-xs md:text-sm font-semibold tracking-wide drop-shadow">
+                    {img.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
